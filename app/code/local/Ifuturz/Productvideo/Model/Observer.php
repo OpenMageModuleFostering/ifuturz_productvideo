@@ -25,10 +25,8 @@ class Ifuturz_Productvideo_Model_Observer
 					if ($data = $this->_getRequest()->getPost())
 					{																		
 						$product->setProductVideo($data['product']['product_video']);
-						$product->save();
 						if(isset($_FILES['upload_video']['name']) && $_FILES['upload_video']['name'] != '') 
-						{							
-							
+						{		
 							$data['upload_video'] = $_FILES['upload_video']['name'];
 							$front = $data['upload_video'];
 							
