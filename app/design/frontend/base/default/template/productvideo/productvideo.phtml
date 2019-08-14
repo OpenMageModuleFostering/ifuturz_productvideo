@@ -1,0 +1,49 @@
+<?php
+/**
+ * @package Ifuturz_Productvideo
+ */
+$_product = Mage::registry('current_product');
+$productid = Mage::registry('current_product')->getId();
+$mediaurl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'catalog/product/';
+$modeldata = Mage::getModel('productvideo/productvideo')->getCollection()->addFieldToFilter('product_id',$productid);
+
+?>
+<?php if( count($modeldata)>0 ){ ?>
+
+    <h2><?php echo $this->__('Product Video')?></h2>    
+    <?php $k=0; ?>    
+    <?php foreach($modeldata as $video):?>
+        <div class="products">       
+        <?php if( file_exists( getcwd() .'/media/catalog/product/videos/'.$productid."/".$video->getVideoName()) ){?>
+
+        <div id="mediaspace<?php echo $k?>"> </div>
+ 
+        <script>
+		
+        jQuery( document ).ready( function(){
+      
+		jQuery.getScript( '<?php echo $mediaurl."videos/mediaplayer/swfobject.js" ?>', function(){
+		      
+		 var so = new SWFObject('<?php echo $mediaurl."videos/mediaplayer/player.swf" ?>','ply','350','315','9','#ffffff');
+		
+        so.addParam('allowfullscreen','true');
+        so.addParam('allowscriptaccess','always');
+        so.addParam('wmode','opaque');
+		so.addVariable('autostart','false');
+		so.addVariable('image','<?php echo $this->getSkinUrl("images/logo.gif")?>');      
+		so.addVariable('file','<?php echo $mediaurl ?>videos/<?php echo $productid."/".$video->getVideoName(); ?>');	
+        so.write('mediaspace'+'<?php echo $k?>');
+        } );
+        } );
+        </script>
+        <?php } else { ?>
+        <?php echo $video->getVideoName(); ?>
+        <?php } ?>
+        </div>
+    	<?php $k++;?>    
+    <?php endforeach;?>
+
+<?php } ?>
+<?php if($_product->getProductVideo()): ?>
+	<?php echo $_product->getProductVideo()?>      
+<?php endif; ?>

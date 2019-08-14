@@ -1,0 +1,103 @@
+<?php
+/**
+ * @package Ifuturz_Productvideo
+ */
+?>
+<div style="" id="product_info_tabs_group_4_content">
+<div class="entry-edit">
+    <div class="entry-edit-head">
+    	<h4 class="icon-head head-edit-form fieldset-legend">        
+        <?php echo $this->__('Product Video')?>        
+        </h4>
+    </div>
+     <div id="group_fields4" class="fieldset fieldset-wide">
+    	<div class="hor-scroll">
+            <table cellspacing="0" class="productvideo-list">
+            	<tbody>                                                
+                    <tr>
+                        <td class="label" width="100px"><label for="name"><?php echo $this->__('Upload Video')?></label></td>
+                        <td class="value">
+                        	<input type="file" value="" name="upload_video" id="Upload Video File">
+                        </td>
+                    </tr>
+    			</tbody>
+   			 </table>
+    	</div>
+	</div>
+   </div>
+</div>
+
+<?php $write = Mage::getSingleton('core/resource')->getConnection('core_write'); 
+$product = Mage::registry('current_product');
+
+//$cpid = Mage::registry('current_product')->getId();
+$cpid = $product->getId();
+?>
+
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo Mage::helper('productvideo')->__('Manage Video(s)') ?></h4>
+    </div>
+     <fieldset style="padding:0px">
+          <table cellspacing="0" border = "0" class="productvideo-list" id="table_color" style="width:100%">
+             <tr bgcolor="#EFE6E6">                
+                <td class="label"><b><?php echo $this->__('Video Name')?></b></td>                
+                <td class="label" width="60px"><b><?php echo $this->__('Remove')?></b></td>
+             </tr>
+              <?php               	 
+                $readresult=$write->query("SELECT * from ifuturz_productvideo WHERE product_id='$cpid'");
+                $result = $readresult->fetchAll();
+                $cnt_updf = count($result);
+                //echo "<pre>";print_r($result);
+            $up = 1;
+            if($cnt_updf > 0)
+            {
+              foreach($result as $col){
+                  //echo $col['video_id']; 
+				  if($up%2==0) {
+				  ?>
+                 <tr bgcolor="#F6F6F6" class="tdf">
+                 <?php } else { ?>
+                 <tr bgcolor="#FFFFFF" class="tdf">
+                 <?php } ?>                    
+                    <td class="label"><?php  echo $col['video_name'];	?></td>                   
+                    <td class="label">
+                        <input type="checkbox" class="testdelete" name = "chkdelete[]" title="Delete (ID: <?php echo $col['video_id']; ?>)" value = "<?php echo $col['video_id']; ?>" />
+                    </td>
+                 </tr>
+                
+             <?php 
+			 $up++;
+			 }
+				}  else { ?>
+				
+				 <tr>
+					<td class="label" colspan="3"><?php echo $this->__('No Video Uploaded.')?></td>
+				 </tr>
+					
+				<?php } ?>                
+         </table>
+      </fieldset>
+  </div>
+  
+  
+<div class="entry-edit">
+    <div class="entry-edit-head">  
+    	<h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('External Embeded Videos (like youtube, vimeo)')?></h4>      
+    </div>
+    <div id="group_fields197" class="fieldset fieldset-wide">
+        <div class="hor-scroll">
+            <table cellspacing="0" class="form-list">
+                <tbody>                
+                <tr>
+                    <td class="label"><label for="product_video"><?php echo $this->__('Video')?></label></td>
+                    <td class="value">
+                    	<textarea cols="15" rows="2" class="textarea" name="product[product_video]" id="product_video"><?php echo $product->getProductVideo()?></textarea>
+                        <p class="note"><?php echo $this->__('add embed code from youtube, Vimeo, Brightcove, TidalTv, Wistia, Kaltura, dailymotion, LongTail, thePlatform, sublime video.etc..(recommended iframe width=350 & height=315)')?></p>
+                    </td>                    
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

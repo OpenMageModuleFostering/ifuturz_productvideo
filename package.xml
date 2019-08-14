@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package>
+    <name>Ifuturz_Productvideo</name>
+    <version>0.1.0</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This extension adds the facility to manage your videos associated with Magento products in the same way you manage the images from the Magento admin panel. </summary>
+    <description>Provide your customers with easy access to How-to Videos, Video Reviews, Product Demonstrations or any videos you think your customers would like to see.&#xD;
+&#xD;
+This extension adds the facility to manage your videos associated with Magento products in the same way you manage the images from the Magento admin panel. &#xD;
+&#xD;
+1)	Simple Admin interface similar to the &#x201C;Images&#x201D; tab on the product admin page.&#xD;
+2)	Easy to upload videos to a product. &#xD;
+3)	Supports .mp3, flv file formats for video uploading.&#xD;
+4)	Facility to embed code of YouTube, Vimeo, Brightcove, TidalTc, Wistia, Kaltura, Dailymotion, LongTail, thePlatform and Sublime.&#xD;
+5)	Manage all the uploaded videos by simply editing a product&#xD;
+6)	Facility to define the maximum limit for uploading the videos &#xD;
+7)	Multi-store compatible. Ability to manage videos at the Website, Store, or View level&#xD;
+8)	Automatically uploads your company&#x2019;s logo as video thumbnail for you &#xD;
+9)	Upload custom images for thumbnails&#xD;
+10)	Facility to manage the configuration for Max Video Uploading Limit and Max Video Size. &#xD;
+</description>
+    <notes>This is the first stable version.</notes>
+    <authors><author><name>Iverve</name><user>iverve</user><email>extension.geek@ifuturz.com</email></author></authors>
+    <date>2015-01-26</date>
+    <time>11:23:46</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="Ifuturz_Productvideo.xml" hash="bdc27a7c2148366117cdbb17b6a1e74a"/></dir></target><target name="magelocal"><dir name="Ifuturz"><dir name="Productvideo"><dir name="Block"><dir name="Adminhtml"><dir name="Catalog"><dir name="Product"><dir name="Edit"><file name="Form.php" hash="d9089017fc85576742060ff0c56bf8e2"/><dir name="Tab"><file name="Productvideo.php" hash="b58d17266a0e10f38620e069350e98d3"/></dir><file name="Tabs.php" hash="5302947429ad9962a3ddf2a40b9e461f"/></dir></dir></dir></dir></dir><dir name="Helper"><file name="Data.php" hash="b474d205d49d8b914125f0955c479f83"/></dir><dir name="Model"><dir name="Mysql4"><dir name="Productvideo"><file name="Collection.php" hash="2a2483f210adacf381e17b0d1b4477da"/></dir><file name="Productvideo.php" hash="dbd265d176d19e1786cbe5c8ff869bfc"/></dir><file name="Observer.php" hash="72c262337f17066bad3cdb781acf9945"/><file name="Productvideo.php" hash="f48f44abc5a24687e5cf0b31cf4cf20f"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="ProductvideoController.php" hash="dfc40cee87ed4b938f2cfd2d1aa8a2bf"/></dir><file name="IndexController.php" hash="7f82431d14f39591d736b09ff00544a2"/></dir><dir name="etc"><file name="config.xml" hash="5f16877f079929030e718ee25234aa05"/><file name="system.xml" hash="975879e383b72081b3ce5e63547dfb61"/></dir><dir name="sql"><dir name="productvideo_setup"><file name="mysql4-install-0.1.0.php" hash="ddf9ccd8622fa40df5e091894f69ef00"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="productvideo"><file name="productvideo.phtml" hash="355308c41e85c10267e64cceb21974e6"/></dir></dir><dir name="layout"><file name="productvideo.xml" hash="88e3f27035b55adc1c3c9133bc37ac78"/></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="productvideo"><dir name="catalog"><dir name="product"><dir name="tab"><file name="productvideo.phtml" hash="106203422d2eb0f77b2f3d305f261e4c"/></dir></dir></dir></dir></dir></dir></dir></dir></target><target name="magemedia"><dir name="catalog"><dir name="product"><dir name="videos"><dir name="mediaplayer"><file name="player.swf" hash="81df72c5bd7b7e1c32f5395bfe0b95eb"/><file name="swfobject.js" hash="66d41ec7090bbdde87e09a309dea6661"/></dir></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="js"><dir name="productvideo"><file name="jquery-1.7.1.min.js" hash="4bab8348a52d17428f684ad1ec3a427e"/><file name="jquery_noconflict.js" hash="afdd9b4ecb226d898fe655136f849752"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

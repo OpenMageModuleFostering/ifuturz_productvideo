@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Ifuturz_Productvideo",
+    "type": "magento-module",
+    "license": "OSL-v3.0",
+    "homepage": "",
+    "description": "This extension adds the facility to manage your videos associated with Magento products in the same way you manage the images from the Magento admin panel. ",
+    "authors": [
+    {
+        "name": "Iverve",
+        "email": "extension.geek@ifuturz.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

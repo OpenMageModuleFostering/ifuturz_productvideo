@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<layout version="0.1.0">
+	<catalog_product_view>
+		<reference name="head">
+			<action method="addItem"><type>skin_js</type><name>js/productvideo/jquery-1.7.1.min.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/productvideo/jquery_noconflict.js</name></action>			
+		</reference>
+		<reference name="product.info.extrahint">
+			<block type="core/template" as="productvideoAs" template="productvideo/productvideo.phtml"/>
+		</reference>
+    </catalog_product_view>
+</layout>
